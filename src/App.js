@@ -12,39 +12,6 @@ import rainIcon from "./assets/rainIcon.svg";
 import { useEffect, useState } from "react";
 
 function App() {
-  const weather = [
-    {
-      id: 1,
-      day: "Today",
-      temp: 32,
-      weather: "sunny",
-    },
-    {
-      id: 2,
-      day: "Tomorrow",
-      temp: 30,
-      weather: "cloudy",
-    },
-    {
-      id: 3,
-      day: "Wednesday",
-      temp: 28,
-      weather: "rainy",
-    },
-    {
-      id: 4,
-      day: "Thursday",
-      temp: 24,
-      weather: "severe rain",
-    },
-    {
-      id: 5,
-      day: "Friday",
-      temp: 28,
-      weather: "sunny",
-    },
-  ];
-
   const [weatherDetails, setWeatherDetails] = useState([]);
   const [city, setCity] = useState("Lahore");
   const [tempCity, setTempCity] = useState("Lahore");
@@ -177,7 +144,7 @@ function App() {
                         ? sunny
                         : item && item.weather === "Mostly Cloudy"
                         ? cloudy
-                        : item && item.weather === "Partly Cloudy"
+                        : item && item.weather === "Partly Cloudy" || item.weather === "Cloudy"
                         ? partlyCloudy
                         : item && item.weather === "Scattered Thunderstorms"
                         ? scatteredThunderstorm
@@ -204,7 +171,7 @@ function App() {
         {!isFound && (
           <div className="flex flex-cols justify-center items-center mb-10">
             <h1 className="text-white text-xl font-normal tracking-wider">
-              Error in fetch data. Check spellings and try again after 1 minute
+              Error in fetching data. Check spellings and try again after 1 minute
             </h1>
           </div>
         )}
