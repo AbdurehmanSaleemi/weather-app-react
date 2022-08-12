@@ -146,7 +146,7 @@ function App() {
                         ? sunny
                         : item && item.weather === "Mostly Cloudy"
                         ? cloudy
-                        : item && item.weather === "Partly Cloudy"
+                        : item && item.weather === "Partly Cloudy" || item.weather === "Cloudy"
                         ? partlyCloudy
                         : item && item.weather === "Scattered Thunderstorms"
                         ? scatteredThunderstorm
@@ -173,7 +173,7 @@ function App() {
         {!isFound && (
           <div className="flex flex-cols justify-center items-center mb-10">
             <h1 className="text-white text-xl font-normal tracking-wider">
-              Error in fetch data. Check spellings and try again after 1 minute
+              Error in fetching data. Check spellings and try again after 1 minute
             </h1>
           </div>
         )}
