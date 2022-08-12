@@ -12,44 +12,12 @@ import rainIcon from "./assets/rainIcon.svg";
 import { useEffect, useState } from "react";
 
 function App() {
-  const weather = [
-    {
-      id: 1,
-      day: "Today",
-      temp: 32,
-      weather: "sunny",
-    },
-    {
-      id: 2,
-      day: "Tomorrow",
-      temp: 30,
-      weather: "cloudy",
-    },
-    {
-      id: 3,
-      day: "Wednesday",
-      temp: 28,
-      weather: "rainy",
-    },
-    {
-      id: 4,
-      day: "Thursday",
-      temp: 24,
-      weather: "severe rain",
-    },
-    {
-      id: 5,
-      day: "Friday",
-      temp: 28,
-      weather: "sunny",
-    },
-  ];
-
   const [weatherDetails, setWeatherDetails] = useState([]);
   const [city, setCity] = useState("Lahore");
   const [tempCity, setTempCity] = useState("Lahore");
   const [isFound, setIsFound] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+
   const fetchData = async (city) => {
     const options = {
       method: "GET",
@@ -60,6 +28,7 @@ function App() {
     };
 
     setIsLoading(true);
+
     const response = await fetch(
       `https://yahoo-weather5.p.rapidapi.com/weather?location=${city}&format=json&u=f`,
       options
@@ -151,7 +120,7 @@ function App() {
             </div>
           </div>
         )}
-        <div className="flex md:flex-cols flex-cols lg:flex-row justify-center">
+        <div className="flex md:flex-cols flex-col lg:flex-row justify-center">
           <div className="flex flex-row justify-center items-center space-x-10 px-36 py-2 w-9/12">
             {isLoading && (
               <h1 className="text-white/80 font-bold text-center text-lg">
